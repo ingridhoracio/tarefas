@@ -10,13 +10,26 @@ class TarefasForm extends StatefulWidget {
 class _TarefasFormState extends State<TarefasForm> {
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: TextFormField(
-        decoration: InputDecoration(
-          label: Text("Descrição"),
-          border: OutlineInputBorder()
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+      child: Form(
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: InputDecoration(
+                  label: Text("Descrição"), border: OutlineInputBorder()),
+            ),
+            SizedBox(height: 10,),
+            TextFormField(
+              keyboardType: TextInputType.datetime,
+              decoration: InputDecoration(
+                  label: Text("Prazo"), border: OutlineInputBorder()),
+            ),
+            SizedBox(height: 10,),
+            ElevatedButton(onPressed: (){}, child: Text("Salvar"))
+          ],
         ),
-      )
-      );
+      ),
+    );
   }
 }
