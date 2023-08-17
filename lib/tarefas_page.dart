@@ -14,4 +14,24 @@ class TarefasPage extends StatelessWidget {
         }, child: Icon(Icons.add)),
     );
   }
+  
+  listaVazia() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Image.asset("imagens/lista.png"),
+
+            ),
+            Text("Lista de tarefas vazia!", style: TextStyle(fontSize: 24),)
+          ],
+        ),
+      ],
+    );
+  }
 }
