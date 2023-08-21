@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'tarefa_model.dart';
+
 class TarefasForm extends StatefulWidget {
   const TarefasForm({super.key});
 
@@ -12,7 +14,7 @@ class _TarefasFormState extends State<TarefasForm> {
   final _dateController = TextEditingController(); // controla o estado do campo da data
 
   final _formKey = GlobalKey<FormState>(); // 1- Controla o estado do formulário
-
+  final _tarefa = Tarefa(descricao: "", prazo: DateTime.now()); // 6-Objeto que irá receber os dados da nova tarefa
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,6 +29,7 @@ class _TarefasFormState extends State<TarefasForm> {
               decoration: const InputDecoration(
                   label: Text("Descrição"), border: OutlineInputBorder()),
               validator: (value) => (value??"").isEmpty?"Uma descrição para a tarefa deve ser informada.":null,  // 4- Validador do campo descrição
+              onSaved: (value)=>_tarefa.descricao = value!, // 7- Recebendo o valor do campo e armazenando na propriedade do objeto que está recebendo os dados do formulário
             ),
             const SizedBox(height: 10,),
             TextFormField(
@@ -59,6 +62,7 @@ class _TarefasFormState extends State<TarefasForm> {
                     return "Data inválida";
                   }
               },                                
+              onSaved: (value) => _tarefa.prazo = DateFormat("dd/MM/yyyy").parse(value!), // 8 - armazenando a data no campo prazo da tarefa 
             ),
             const SizedBox(height: 10,),
             ElevatedButton(onPressed: (){
@@ -66,7 +70,7 @@ class _TarefasFormState extends State<TarefasForm> {
               //3- Executa a validação do formulário
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save(); // 4-Solicita ao formulário que salve os dados
-
+                print("Tarefa digitada: $_tarefa");  // 9- Aqui iremos enviar para o banco de dados
               }
 
 
