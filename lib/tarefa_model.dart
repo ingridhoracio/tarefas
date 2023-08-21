@@ -6,4 +6,11 @@ class Tarefa {
 
   Tarefa({this.id,required this.descricao,required this.prazo, this.concluido});
 
+  
+  @override
+  String toString() {
+    
+    return "id:$id-descricao: $descricao -prazo: $prazo -concluido: $concluido";
+  }
+
 }

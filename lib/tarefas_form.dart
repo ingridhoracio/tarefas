@@ -67,13 +67,12 @@ class _TarefasFormState extends State<TarefasForm> {
             const SizedBox(height: 10,),
             ElevatedButton(onPressed: (){
               
+              _formKey.currentState!.deactivate();
               //3- Executa a validação do formulário
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save(); // 4-Solicita ao formulário que salve os dados
                 print("Tarefa digitada: $_tarefa");  // 9- Aqui iremos enviar para o banco de dados
               }
-
-
             }, child: const Text("Salvar"))
           ],
         ),
