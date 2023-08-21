@@ -26,6 +26,7 @@ class _TarefasFormState extends State<TarefasForm> {
             TextFormField(
               decoration: const InputDecoration(
                   label: Text("Descrição"), border: OutlineInputBorder()),
+              validator: (value) => (value??"").isEmpty?"Uma descrição para a tarefa deve ser informada.":null,  // 4- Validador do campo descrição
             ),
             const SizedBox(height: 10,),
             TextFormField(
@@ -47,6 +48,17 @@ class _TarefasFormState extends State<TarefasForm> {
               keyboardType: TextInputType.datetime,
               decoration: const InputDecoration(
                   label: Text("Prazo"), border: OutlineInputBorder()),
+              validator: (value){
+                /**5 - validando o campo do prazo */
+                  try {
+                    DateTime data = DateFormat("dd/MM/yyyy").parse(value!);
+                    if (data.isBefore(DateTime.now()))                  {
+                       return "Data não pode ser no passado!";  
+                    }
+                  } catch(e){
+                    return "Data inválida";
+                  }
+              },                                
             ),
             const SizedBox(height: 10,),
             ElevatedButton(onPressed: (){
