@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tarefas/tarefa_state.dart';
+import 'package:tarefas/tarefas_state.dart';
 
 class TarefasPage extends StatelessWidget {
   final TarefaState state;
@@ -11,7 +12,7 @@ class TarefasPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text("Tarefas"),),
-      body: state.listaTarefas.isEmpty?listaVazia():Container(),
+      body: state.listatarefas.isEmpty?listaVazia():Container(),
       floatingActionButton: 
         FloatingActionButton(onPressed: (){
           Navigator.of(context).pushNamed("/add");

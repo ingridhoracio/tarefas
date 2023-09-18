@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tarefas/tarefas_novo.dart';
+import 'package:tarefas/tarefas_novo.dart' show TarefasNovo;
 import 'package:tarefas/tarefas_page.dart';
 import 'package:tarefas/tarefas_state.dart';
 
@@ -15,7 +15,10 @@ class App extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.orange),
       initialRoute: "/",
       routes: {"/":(context)=>TarefasPage(state: state,),
-               "/add":(context)=>TarefasNovo(state: state, helper: null,)},
+               "/add":(context){
+                 var helper2 = null;
+                 return TarefasNovo(state: state, helper: helper2,);
+               }},
       
     );
   }
