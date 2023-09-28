@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:tarefas/tarefa_state.dart';
-import 'package:tarefas/tarefas_state.dart';
+import 'package:tarefas/tarefas_helper.dart';
+import 'package:tarefas/tarefas_list.dart';
 
 class TarefasPage extends StatelessWidget {
-  final TarefaState state;
-  const TarefasPage({super.key, required this.state});
+  final TarefasHelper helper;
+  const TarefasPage({super.key, required this.helper});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,18 @@ class TarefasPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text("Tarefas"),),
-      body: state.listatarefas.isEmpty?listaVazia():Container(),
+      body: FutureBuilder(
+        future: helper.listar(),
+        builder: (context, snapshot) =>
+        // 1- sem dados (lista vazia, nao estada carregando)
+        // 2- consultando lista vazia/3-lista recuperada
+        !snapshot.hasData?
+           Center(
+             child: CircularProgressIndicator(valueColor: 
+                AlwaysStoppedAnimation(Colors.blue),),
+           ):
+        snapshot.data!.isEmpty?listaVazia():
+        TarefasList(tarefas: snapshot.data!),),
       floatingActionButton: 
         FloatingActionButton(onPressed: (){
           Navigator.of(context).pushNamed("/add");

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:tarefas/tarefas_state.dart';
 
 import 'tarefa_model.dart';
 import 'tarefa_state.dart';
