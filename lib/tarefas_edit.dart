@@ -13,7 +13,7 @@ class TarefasEdit extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: const Text("Nova Tarefa"),
+        title: const Text("Editar Tarefa"),
       ),
       body: TarefasForm(state: this.state, helper: helper,),
     );
