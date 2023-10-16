@@ -9,6 +9,7 @@ class TarefasPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    state.carregarLista();
     
     
     return Scaffold(
@@ -24,7 +25,7 @@ class TarefasPage extends StatelessWidget {
                 AlwaysStoppedAnimation(Colors.blue),),
            ):
         state.listaTarefas.isEmpty?listaVazia():
-        TarefasList(tarefas: state.listaTarefas),),
+        TarefasList(state: state),),
       floatingActionButton: 
         FloatingActionButton(onPressed: (){
           Navigator.of(context).pushNamed("/add");
