@@ -11,7 +11,6 @@ class TarefasPage extends StatelessWidget {
   Widget build(BuildContext context) {
     state.carregarLista();
     
-    
     return Scaffold(
       appBar: AppBar(title: Text("Tarefas"),),
       body: ValueListenableBuilder(
@@ -27,8 +26,10 @@ class TarefasPage extends StatelessWidget {
         state.listaTarefas.isEmpty?listaVazia():
         TarefasList(state: state),),
       floatingActionButton: 
-        FloatingActionButton(onPressed: (){
-          Navigator.of(context).pushNamed("/add");
+        FloatingActionButton(onPressed: () async {
+          await Navigator.of(context).pushNamed("/add");
+          state.carregarLista();
+
         }, child: Icon(Icons.add)),
     );
   }

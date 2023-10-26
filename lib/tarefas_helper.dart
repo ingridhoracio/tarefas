@@ -5,4 +5,6 @@ abstract class TarefasHelper {
   Future<void> excluir(int id);
   Future<Tarefa> obter(int id);
   Future<List<Tarefa>> listar();
+
+  delete(Tarefa? tarefa) {}
 }

@@ -9,3 +9,6 @@
 {"key":9,"store":"tarefas","value":{"descricao":"Tarefa de Teste","prazo":"14/10/2023 12:55:17"}}
 {"key":10,"store":"tarefas","value":{"descricao":"Impementar o método salvar","prazo":"15/09/2023 12:00:00"}}
 {"key":11,"store":"tarefas","value":{"descricao":"Último teste de inclusão","prazo":"23/09/2023 12:00:00"}}
+{"key":8,"store":"tarefas","value":{"descricao":"Teste","prazo":"14/10/2023 12:53:26","id":"8","concluido":"26/10/2023 12:55:35"}}
+{"key":8,"store":"tarefas","value":{"descricao":"Teste","prazo":"14/10/2023 12:53:26","id":"8","concluido":"26/10/2023 12:55:35"}}
+{"key":12,"store":"tarefas","value":{"descricao":"teste","prazo":"31/10/2023 12:00:00"}}

@@ -16,6 +16,7 @@ class TarefasEdit extends StatelessWidget {
         title: const Text("Editar Tarefa"),
       ),
       body: TarefasForm(state: this.state, helper: helper,),
+      floatingActionButton: FloatingActionButton(onPressed: () => state.delete(),),
     );
   }
 }
