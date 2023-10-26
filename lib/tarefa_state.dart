@@ -26,7 +26,7 @@ class TarefaState {
   }
 
   delete() async {
-    await helper.delete(tarefa);
+    await helper.delete(tarefa!);
   }
 
 }
