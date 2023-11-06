@@ -44,4 +44,5 @@ class TarefasHelperImpl extends TarefasHelper {
        return await store.add(db, tarefa.getMap());
     }
   }
+
 }
